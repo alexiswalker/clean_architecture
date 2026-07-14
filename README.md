@@ -15,23 +15,11 @@ dotnet build
 # Run the application
 dotnet run --project src/ISII.Web
 
-# Or run with Aspire (if using)
-dotnet run --project src/ISII.AspireHost
 ```
 
 ### Database Setup
 
-This template uses **SQL Server in a container** managed by Aspire. When you run the Aspire AppHost, it automatically starts a SQL Server container and creates the database.
-
-#### Option 1: Run with Aspire (Recommended)
-
-```powershell
-dotnet run --project src/ISII.AspireHost
-```
-
-The SQL Server container and database are automatically provisioned and migrations are applied on startup.
-
-#### Option 2: Run Web project directly (SQL Server LocalDB)
+#### Run Web project directly (SQLite LocalDB)
 
 If running the Web project without Aspire, update `appsettings.json` to use LocalDB:
 
@@ -111,8 +99,7 @@ This minimal template simplifies the full Clean Architecture template:
 - **.NET 10**: Latest LTS framework
 - **FastEndpoints**: REPR pattern for API endpoints
 - **Entity Framework Core**: Data access with migrations
-- **SQL Server**: Containerized database via Aspire (easily switched to PostgreSQL, SQLite, etc.)
-- **Aspire**: Cloud-ready orchestration and observability
+- **SQLite**: Database
 - **Serilog**: Structured logging
 - **FluentValidation**: Request validation
 
@@ -132,7 +119,7 @@ Update `appsettings.json`:
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=YourDb;Trusted_Connection=true;"
+    "AppDb": "DataSource=ISII.db;Cache=Shared"
   }
 }
 ```
