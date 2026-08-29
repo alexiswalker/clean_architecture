@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\ISII.Web\ISII.Web.csproj" />
+    <ProjectReference Include="..\..\src\ISII.Web\ISII.Web.csproj" />
   </ItemGroup>
 
 </Project>

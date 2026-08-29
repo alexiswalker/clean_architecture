@@ -13,6 +13,7 @@
   <Folder Name="/src/">
     <Project Path="src/ISII.Web/ISII.Web.csproj" />
   </Folder>
-  <Project Path="ISII.Tests/ISII.Tests.csproj" />
-
+  <Folder Name="/tests/">
+    <Project Path="tests/ISII.Tests/ISII.Tests.csproj" />
+  </Folder>
 </Solution>
