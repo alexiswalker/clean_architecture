@@ -148,12 +148,6 @@ Learn more: [Clean Architecture Template](https://github.com/ardalis/CleanArchit
 - [FastEndpoints Documentation](https://fast-endpoints.com/)
 - [Ardalis on YouTube](https://www.youtube.com/@Ardalis)
 
-## Need Help?
-
-- Report issues: [GitHub Issues](https://github.com/ardalis/CleanArchitecture/issues)
-- Ask questions: [Discussions](https://github.com/ardalis/CleanArchitecture/discussions)
-- Follow updates: [@ardalis](https://twitter.com/ardalis)
-
 ---
 
 **Happy Coding!** 🚀
