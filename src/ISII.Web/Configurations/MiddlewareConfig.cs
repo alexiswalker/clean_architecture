@@ -34,7 +34,7 @@ public static class MiddlewareConfig
       app.MapScalarApiReference();
     }
 
-    app.UseHttpsRedirection(); // Note this will drop Authorization headers
+    //app.UseHttpsRedirection(); // Note this will drop Authorization headers
 
     await SeedDatabase(app);
 
