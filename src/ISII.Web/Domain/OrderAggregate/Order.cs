@@ -1,5 +1,4 @@
 using ISII.Web.Domain.ProductAggregate;
-using ISII.Web.Infrastructure.Data;
 
 namespace ISII.Web.Domain.OrderAggregate;
 
