@@ -7,13 +7,14 @@ using ISII.Web.ProductFeatures;
 namespace ISII.Web.ProductFeatures.Create;
 
 public sealed class CreateProductRequest
-{ 
+{
+  public ProductId Id { get; init; } = ProductId.New;
   public string Name { get; init; } = string.Empty;
   public decimal UnitPrice { get; init; }
 }
 
-public class CreateEndpoint(IRepository<Product> repository) : 
-  Endpoint<CreateProductRequest, 
+public class CreateEndpoint(IRepository<Product> repository) :
+  Endpoint<CreateProductRequest,
            Results<Created<ProductRecord>, ValidationProblem, ProblemHttpResult>>
 {
   private readonly IRepository<Product> _repository = repository;
@@ -27,7 +28,7 @@ public class CreateEndpoint(IRepository<Product> repository) :
     {
       s.Summary = "Create a new product";
       s.Description = "Creates a new product with the specified name and unit price.";
-      s.ExampleRequest = new CreateProductRequest { Name = "Sample Product", UnitPrice = 19.99m };
+      s.ExampleRequest = new CreateProductRequest { Id = ProductId.From(1), Name = "Sample Product", UnitPrice = 19.99m };
       s.ResponseExamples[201] = new ProductRecord(1, "Sample Product", 19.99m);
 
       s.Responses[201] = "Product created successfully";
@@ -42,10 +43,10 @@ public class CreateEndpoint(IRepository<Product> repository) :
       .ProducesProblem(400));
   }
 
-  public override async Task<Results<Created<ProductRecord>, ValidationProblem, ProblemHttpResult>> 
+  public override async Task<Results<Created<ProductRecord>, ValidationProblem, ProblemHttpResult>>
     ExecuteAsync(CreateProductRequest request, CancellationToken cancellationToken)
   {
-    var product = Product.Create(request.Name, request.UnitPrice);
+    var product = Product.Create(request.Id, request.Name, request.UnitPrice);
 
     await _repository.AddAsync(product, cancellationToken);
     await _repository.SaveChangesAsync(cancellationToken);
