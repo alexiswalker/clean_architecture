@@ -112,9 +112,9 @@ This minimal template simplifies the full Clean Architecture template:
 3. **Create Migration**: `dotnet ef migrations add AddYourFeature`
 4. **Create Endpoints**: Add FastEndpoints in `Endpoints/YourFeature/`
 
-### Switching to SQL Server
+### SQLite
 
-Update `appsettings.json`:
+The project is configured to use SQLite by default. Update `appsettings.json` if needed:
 
 ```json
 {
